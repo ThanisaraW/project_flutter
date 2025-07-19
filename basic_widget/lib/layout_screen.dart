@@ -24,162 +24,262 @@ class LayoutScreen extends StatelessWidget {
     final images = posts;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Layout Example'),
-        leading: IconButton(
-          icon: const Icon(Icons.exit_to_app, size: 50.0),
-          onPressed: () {
-            print('Menu pressed');
-          },
-        ),
-      ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            // User Avatar
-            const SizedBox(height: 20.0),
-            Center(
-              child: CircleAvatar(
-                radius: 65.0,
-                backgroundColor: const Color.fromARGB(255, 42, 27, 176),
-                child: const CircleAvatar(
-                  radius: 60.0,
-                  backgroundImage: AssetImage('assets/images/profile.jpg'),
+            // Header section with gradient background
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color.fromARGB(255, 241, 172, 127), 
+                    Color.fromARGB(255, 239, 125, 197), 
+                  ],
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
               ),
-            ),
-
-            // Full Name
-            const SizedBox(height: 20.0),
-            const Center(
-              child: Text(
-                'Thxnii',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
-            // Address
-            const SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.location_on, size: 30.0, color: Colors.blue),
-                const SizedBox(width: 15.0),
-                const Text(
-                  '123 Main St, City, Country',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.black54,
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      // Top bar
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                            onPressed: () {
+                              print('Menu pressed');
+                            },
+                          ),
+                          const Spacer(),
+                          IconButton(
+                            icon: const Icon(
+                              Icons.notifications_none,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                            onPressed: () {
+                              print('Notifications pressed');
+                            },
+                          ),
+                        ],
+                      ),
+                      
+                      const SizedBox(height: 20),
+                      
+                      // Profile section
+                      Row(
+                        children: [
+                          // Profile image
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 3,
+                              ),
+                            ),
+                            child: const CircleAvatar(
+                              radius: 35,
+                              backgroundImage: AssetImage('assets/images/profile.png'),
+                            ),
+                          ),
+                          
+                          const SizedBox(width: 20),
+                          
+                          // Name and username
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Crayon Shin-chan',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                const Text(
+                                  '@shinchxnn',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          
+                          // Follow button
+                          ElevatedButton(
+                            onPressed: () {
+                              print('Follow pressed');
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: const Color(0xFF9C27B0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 8,
+                              ),
+                            ),
+                            child: const Text(
+                              'Follow',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      
+                      const SizedBox(height: 30),
+                      
+                      // Stats section
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          // Follow
+                          Column(
+                            children: [
+                              const Text(
+                                '867',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                'Follow',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          
+                          // Posts
+                          Column(
+                            children: [
+                              const Text(
+                                '59',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                'Posts',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          
+                          // Followers
+                          Column(
+                            children: [
+                              const Text(
+                                '1.2K',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                'Followers',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      
+                      const SizedBox(height: 20),
+                    ],
                   ),
                 ),
-              ],
-            ),
-
-            // Posts Stats
-            const SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Posts
-                const SizedBox(width: 30.0),
-                Column(
-                  children: [
-                    const Text(
-                      '36',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                    const SizedBox(height: 5.0),
-                    const Text(
-                      'Posts',
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-
-                // Following
-                const SizedBox(width: 30.0),
-                Column(
-                  children: [
-                    const Text(
-                      '12.5K',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                    const SizedBox(height: 5.0),
-                    const Text(
-                      'Following',
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-
-                // Followers
-                const SizedBox(width: 30.0),
-                Column(
-                  children: [
-                    const Text(
-                      '5k',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                    const SizedBox(height: 5.0),
-                    const Text(
-                      'Followers',
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-
-            // Photo Gallery
-            const SizedBox(height: 25.0),
-            const Center(
-              child: Text(
-                'Photos',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
               ),
             ),
-            const SizedBox(height: 10.0),
-
-            // GridView for photos
+            
+            // Photos section
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: images.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 8.0,
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      images[index],
-                      fit: BoxFit.cover,
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Photos',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
                     ),
-                  );
-                },
+                  ),
+                  
+                  const SizedBox(height: 15),
+                  
+                  // GridView for photos
+                  GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: images.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 1.0,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 8,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            images[index],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 20.0), // Bottom padding
           ],
         ),
       ),
