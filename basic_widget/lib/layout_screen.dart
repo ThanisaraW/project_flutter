@@ -103,7 +103,7 @@ class LayoutScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  'Crayon Shin-chan',
+                                  'Thanisara Wohler',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -112,7 +112,7 @@ class LayoutScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 const Text(
-                                  '@shinchxnn',
+                                  '@thxnii.wl',
                                   style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 16,
