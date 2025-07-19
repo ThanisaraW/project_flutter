@@ -156,7 +156,7 @@ class LayoutScreen extends StatelessWidget {
                           Column(
                             children: [
                               const Text(
-                                '867',
+                                '246',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
@@ -178,7 +178,7 @@ class LayoutScreen extends StatelessWidget {
                           Column(
                             children: [
                               const Text(
-                                '59',
+                                '12',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
@@ -200,7 +200,7 @@ class LayoutScreen extends StatelessWidget {
                           Column(
                             children: [
                               const Text(
-                                '1.2K',
+                                '2K',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
