@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor:Colors.blue[200],
       appBar: AppBar(
-        leading: IconButton(onPressed: (){
+        leading: IconButton(onPressed: (){   
           print('Press menu.');
         }, icon: Icon(Icons.menu, size: 50)),
         title: Center(child: Text('My Profile')),
