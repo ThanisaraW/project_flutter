@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           width: 200, height: 200,),
 
           //Image from static folder
-          Image.asset('assets/images/profile.jpg', width: 300, height: 300, )
+          Image.asset('assets/images/profile.png', width: 300, height: 300, )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

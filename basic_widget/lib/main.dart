@@ -1,6 +1,8 @@
+import 'package:basic_widget/navbar_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'layout_screen.dart';
+import 'navbar_screen.dart';
+// import 'layout_screen.dart';
 // import 'home_screen.dart';
 
 void main(){
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter basic widgets!',
-      home: LayoutScreen(),
+      home: NavbarScreen(),
     );
   }
 }
